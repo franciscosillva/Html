@@ -160,3 +160,110 @@ Explicação do padrão:
 
 [^\s@]+ para a extensão (como com, br, etc).
 
+Pergunta 3) 
+
+Escreva em detalhes como funciona a comunicação entre um navegador web, o cliente, e um servidor na internet, ao assistir uma página web. Explique o papel de cada um, cliente, servidor, e detalhe o fluxo de eventos desde a solicitação inicial até o recebimento da página pelo navegador. Inclua na sua explicação os conceitos de execução, HTTP, resposta HTTP, e, brevemente, o papel do DNS.
+O ChatGPT disse:
+Claro! Vamos explorar em detalhes como ocorre a comunicação entre um navegador web (cliente) e um servidor na internet ao acessar uma página web, explicando o papel de cada um e o fluxo de eventos do início ao fim.
+
+Resposta :
+O usuário digita uma URL.
+
+O navegador resolve o domínio via DNS.
+
+O navegador estabelece uma conexão com o servidor.
+
+Envia uma requisição HTTP.
+
+O servidor processa e envia uma resposta HTTP.
+
+
+
+1. Papéis principais
+Cliente (Navegador Web)
+O cliente é o dispositivo do usuário (como um computador ou smartphone) que executa um navegador (Chrome, Firefox, etc.). O navegador é responsável por:
+
+Solicitar recursos web (como páginas HTML, CSS, imagens, scripts).
+
+Interpretar o conteúdo recebido e exibi-lo ao usuário.
+
+Servidor Web
+O servidor é um computador na internet configurado para atender requisições feitas por clientes. Ele:
+
+Recebe as requisições HTTP.
+
+Processa essas requisições (às vezes executando código do lado do servidor).
+
+Retorna uma resposta HTTP contendo os dados solicitados (como um arquivo HTML).
+
+2. Fluxo de eventos: do pedido à exibição
+Etapa 1: Entrada da URL e resolução DNS
+Quando o usuário digita uma URL como https://www.exemplo.com:
+
+O navegador precisa descobrir o endereço IP do servidor correspondente a www.exemplo.com.
+
+Isso é feito através do DNS (Domain Name System), que funciona como uma "agenda de contatos" da internet, mapeando nomes de domínio para endereços IP.
+
+O navegador consulta um servidor DNS para obter o IP. Por exemplo: www.exemplo.com → 192.0.2.1.
+
+Etapa 2: Estabelecimento da conexão
+Com o IP em mãos, o navegador estabelece uma conexão TCP com o servidor na porta 80 (HTTP) ou 443 (HTTPS).
+
+Se for HTTPS, também ocorre uma negociação TLS/SSL para criptografar a comunicação (garantindo segurança).
+
+Etapa 3: Envio da requisição HTTP
+O navegador envia uma requisição HTTP. Exemplo:
+
+GET /index.html HTTP/1.1
+Host: www.exemplo.com
+User-Agent: Mozilla/5.0
+Accept: text/html
+Essa requisição diz ao servidor o que está sendo solicitado e fornece informações sobre o cliente.
+
+Etapa 4: Processamento no servidor
+O servidor web (como Apache, Nginx ou um framework como Node.js) recebe a requisição.
+
+Ele pode simplesmente retornar um arquivo estático (como um .html), ou pode processar código do lado do servidor (PHP, Python, etc.) para gerar a resposta dinamicamente.
+
+Uma vez processada, ele monta uma resposta HTTP.
+
+Etapa 5: Resposta HTTP
+A resposta enviada do servidor inclui:
+
+Um código de status (como 200 OK, 404 Not Found).
+
+Cabeçalhos HTTP com metadados.
+
+O corpo da resposta (como o conteúdo HTML da página).
+
+Exemplo:
+
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=UTF-8
+Content-Length: 1024
+
+<!DOCTYPE html>
+<html>
+  <head><title>Exemplo</title></head>
+  <body>Bem-vindo!</body>
+</html>
+Etapa 6: Renderização no navegador
+O navegador interpreta o HTML recebido.
+
+Se o HTML referenciar outros recursos (CSS, JavaScript, imagens), o navegador envia novas requisições HTTP para cada um.
+
+O navegador monta e exibe visualmente a página para o usuário, usando seu motor de renderização (como Blink ou WebKit).
+
+3. Conceitos envolvidos
+HTTP (HyperText Transfer Protocol)
+É o protocolo que define como o cliente e o servidor se comunicam na web. As requisições e respostas seguem esse padrão.
+
+Requisição HTTP
+É o pedido feito pelo cliente para obter um recurso (página, imagem, script, etc.).
+
+Resposta HTTP
+É a resposta do servidor contendo os dados solicitados, além de informações sobre o status da requisição.
+
+Execução
+No lado do servidor, "execução" pode envolver scripts ou programas que geram conteúdo dinâmico (por exemplo, acessar banco de dados, processar dados, autenticar usuários etc.).
+
