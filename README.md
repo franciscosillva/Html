@@ -1,9 +1,17 @@
 # PROGRAMAÇÃO WEB
-atividade   
 
-Pergunta 1 )   Pesquise e descreva detalhadamente como o JavaScript é utilizado para criar efeitos visuais em páginas web. Explique como o JavaScript interage com CSS para modificar estilos dinamicamente e como animações simples podem ser implementadas diretamente no navegador. Discuta também como as bibliotecas JavaScript facilitam a criação de efeitos mais complexos, fornecendo exemplos de funcionalidades comuns dessas bibliotecas.
+atividades do Alan
 
-       Resposta:      O JavaScript é uma das principais linguagens de programação usadas no desenvolvimento web, e desempenha um papel fundamental na criação de efeitos visuais dinâmicos em páginas da web. Ele permite modificar o conteúdo e o estilo de uma página em tempo real, sem a necessidade de recarregar a página, o que resulta em uma experiência mais interativa para o usuário.
+Fontes : google e chat gpt 
+ 
+
+Pergunta 1 ) 
+
+Pesquise e descreva detalhadamente como o JavaScript é utilizado para criar efeitos visuais em páginas web. Explique como o JavaScript interage com CSS para modificar estilos dinamicamente e como animações simples podem ser implementadas diretamente no navegador. Discuta também como as bibliotecas JavaScript facilitam a criação de efeitos mais complexos, fornecendo exemplos de funcionalidades comuns dessas bibliotecas.
+
+Resposta:     
+
+O JavaScript é uma das principais linguagens de programação usadas no desenvolvimento web, e desempenha um papel fundamental na criação de efeitos visuais dinâmicos em páginas da web. Ele permite modificar o conteúdo e o estilo de uma página em tempo real, sem a necessidade de recarregar a página, o que resulta em uma experiência mais interativa para o usuário.
 
 1. JavaScript e Efeitos Visuais
 JavaScript pode ser usado para:
@@ -88,6 +96,67 @@ anime({
 Conclusão
 O JavaScript é essencial para criar interatividade visual em páginas web. Ele pode manipular o CSS de forma dinâmica para criar efeitos como transições, transformações e animações. Para efeitos mais avançados, bibliotecas como GSAP, Anime.js e jQuery oferecem ferramentas poderosas e simplificadas. O uso inteligente dessas técnicas e bibliotecas torna possível criar interfaces ricas, modernas e altamente responsivas no navegador.
 
- 
+Pergunta 2)    
 
-fontes : chat gpt e google 
+Explique o processo de validação de 
+formulários utilizando o JavaScript do lado do cliente. Descreva como o JavaScript captura os dados inseridos nos campos de um formulário e como ele pode ser usado para verificar se esses dados atendem a critérios específicos antes de serem enviados ao servidor. Introduza o conceito de expressões regulares e explique como elas podem ser aplicadas para realizar validações de formatos mais avançados (Forneça um exemplo de uma expressão regular para validar um e-mail e explique seu padrão).
+
+ Resposta :
+  
+  A validação de formulários no lado do cliente com JavaScript é uma técnica usada para garantir que os dados inseridos pelos usuários estejam corretos antes de serem enviados ao servidor. Isso melhora a experiência do usuário, evita requisições desnecessárias ao servidor e aumenta a segurança da aplicação.
+
+Como o JavaScript captura dados do formulário
+O JavaScript pode acessar os valores dos campos de um formulário por meio do DOM (Document Object Model). Por exemplo:
+
+<form id="meuFormulario">
+  <input type="text" id="nome" name="nome">
+  <input type="email" id="email" name="email">
+  <button type="submit">Enviar</button>
+</form>
+
+<script>
+  const formulario = document.getElementById('meuFormulario');
+
+  formulario.addEventListener('submit', function(event) {
+    event.preventDefault(); // Impede o envio do formulário
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+
+    // Validação aqui
+    console.log(nome, email);
+  });
+</script>
+Validação com JavaScript
+Após capturar os dados, podemos aplicar condições para verificar se eles são válidos. Exemplos de validações simples:
+
+Verificar se o campo está vazio.
+
+Verificar se a senha tem o número mínimo de caracteres.
+
+Verificar se o campo numérico contém apenas números.
+
+if (nome === "") {
+  alert("O nome é obrigatório.");
+}
+Expressões Regulares (RegEx)
+Expressões regulares são padrões usados para combinar e validar strings de forma eficiente. Elas são extremamente úteis para validações mais avançadas, como formatos de e-mail, senhas complexas, CEPs, telefones, etc.
+
+Exemplo: Validação de e-mail com RegEx
+const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if (!regexEmail.test(email)) {
+  alert("E-mail inválido.");
+}
+Explicação do padrão:
+^ e $ definem o início e o fim da string.
+
+[^\s@]+ corresponde a um ou mais caracteres que não são espaços nem @ — é a parte antes do @.
+
+@ é o caractere literal obrigatório.
+
+[^\s@]+ novamente para a parte após o @ (domínio).
+
+\. é o ponto literal entre o domínio e a extensão.
+
+[^\s@]+ para a extensão (como com, br, etc).
+
