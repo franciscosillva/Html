@@ -108,12 +108,13 @@ formulários utilizando o JavaScript do lado do cliente. Descreva como o JavaScr
 Como o JavaScript captura dados do formulário
 O JavaScript pode acessar os valores dos campos de um formulário por meio do DOM (Document Object Model). Por exemplo:
 
+````javascript
 <form id="meuFormulario">
   <input type="text" id="nome" name="nome">
   <input type="email" id="email" name="email">
   <button type="submit">Enviar</button>
 </form>
-
+````
 <script>
   const formulario = document.getElementById('meuFormulario');
 
